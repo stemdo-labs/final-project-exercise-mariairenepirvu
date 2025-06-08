@@ -1,5 +1,5 @@
 image:
-  repository: acrjgarcia123.azurecr.io/proyecto-backend
+  repository: mariairenepirvu/gestion-recursos-backmip
   tag: latest
   pullPolicy: IfNotPresent
 

@@ -1,5 +1,5 @@
 image:
-  repository: acrjgarcia123.azurerc.io/proyecto-frontend
+  repository: mariairenepirvu/gestion-recursos-frontmip
   tag: latest
   pullPolicy: IfNotPresent
  

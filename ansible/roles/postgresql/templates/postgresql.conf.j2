@@ -1,6 +1,4 @@
-# PostgreSQL configuration file
+# Archivo de configuración de PostgreSQL
 
-# Listen on all addresses
-listen_addresses = '*'
-
-# Add other necessary configuration parameters here
+# Escuchar únicamente en la IP del backend
+listen_addresses = '{{ backend_ip }}'
