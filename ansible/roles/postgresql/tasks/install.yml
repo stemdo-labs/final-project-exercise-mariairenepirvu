@@ -1,3 +1,5 @@
+- import_tasks: dependencies.yml  # Primero las dependencias
+
 - name: Esperar a que APT esté libre
   shell: |
     while fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do
@@ -45,4 +47,4 @@
     mode: '0640'
   notify: Restart PostgreSQL
 
-
+- import_tasks: firewall.yml  

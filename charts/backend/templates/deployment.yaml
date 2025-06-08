@@ -1,9 +1,9 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1 
+kind: Deployment 
 metadata:
   name: backend
 spec:
-  replicas: 1
+  replicas: 1 
   selector:
     matchLabels:
       app: backend
@@ -13,12 +13,12 @@ spec:
         app: backend
     spec:
       containers:
-        - name: backend
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
+        - name: backend # Nombre del contenedor 
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }} # Imagen del contenedor, usando variables del Helm chart
+          imagePullPolicy: {{ .Values.image.pullPolicy }} # Política para descargar la imagen
+          ports: # Puerto expuesto por el contenedor
             - containerPort: {{ .Values.service.port }}
-          env:
+          env: # Variables de entorno necesarias para la aplicación
             - name: SPRING_DB_HOST
               value: "{{ .Values.env.SPRING_DB_HOST }}"
             - name: SPRING_DB_PORT
@@ -29,4 +29,4 @@ spec:
               value: "{{ .Values.env.SPRING_DB_USER }}"
             - name: SPRING_DB_PASSWORD
               value: "{{ .Values.env.SPRING_DB_PASSWORD }}"
-          resources: {{- toYaml .Values.resources | nindent 12 }}
+          resources: {{- toYaml .Values.resources | nindent 12 }}  # Recursos asignados al contenedor
